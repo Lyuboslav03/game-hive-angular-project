@@ -1,0 +1,50 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em 0 1.5em 0;
+    background-color: #eee;
+}
+
+.navbar-wrap {
+    display: flex;
+}
+
+.navbar-wrap ul {
+    display: flex;
+}
+
+header nav ul {
+    display: flex;
+}
+
+.navbar-wrap li {
+    display: block;
+    padding: 0 1em 0 1em;
+}
+
+header nav ul li {
+    display: block;
+    padding: 0 1em 0 1em;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: lightsalmon;
+    font-size: 1.3em;
+}
+
+.logo {
+    margin-left: 1.3em;
+    margin-right: 1.3em;
+}
+
+.logo p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3em;
+}
+
+nav a {
+    text-decoration: none;
+    color: lightsalmon;
+    font-size: 1.3em;
+}
