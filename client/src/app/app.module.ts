@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { GamesModule } from './games/games.module';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
-    GamesModule
+    GamesModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

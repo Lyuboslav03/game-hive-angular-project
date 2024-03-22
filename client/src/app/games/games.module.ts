@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllGamesComponent } from './all-games/all-games.component';
+import { GamesRoutingModule } from './games-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { AllGamesComponent } from './all-games/all-games.component';
     AllGamesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    GamesRoutingModule
   ],
   exports: [AllGamesComponent]
 })
