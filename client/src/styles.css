@@ -3,3 +3,8 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(182, 187, 189, 0.658);
+}
