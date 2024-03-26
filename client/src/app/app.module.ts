@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { GamesModule } from './games/games.module';
 import { ErrorComponent } from './error/error.component';
 import { UserModule } from './user/user.module';
+import { HttpClientModule } from '@angular/common/http';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { UserModule } from './user/user.module';
     CoreModule,
     GamesModule,
     UserModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
