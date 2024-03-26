@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { GamesModule } from './games/games.module';
 import { ErrorComponent } from './error/error.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ErrorComponent } from './error/error.component';
     BrowserModule,
     CoreModule,
     GamesModule,
+    UserModule,
     AppRoutingModule,
   ],
   providers: [],
