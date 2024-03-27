@@ -47,4 +47,10 @@ export class UserService {
       this.user$$.next(undefined);
     }))
   }
+
+  getUser() {
+    return this.http.get<UserForAuth>('/api/users').pipe(tap((user) => {
+      this.user$$.next(user);
+    }))
+  }
 }
