@@ -10,16 +10,20 @@ import { ErrorComponent } from './error/error.component';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    AuthenticateComponent
   ],
   imports: [
     BrowserModule,
     CoreModule,
+    SharedModule,
     GamesModule,
     UserModule,
     HttpClientModule,
