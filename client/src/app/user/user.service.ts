@@ -32,4 +32,13 @@ export class UserService {
       this.user$$.next(user);
     }))
   }
+
+  login(email: string, password: string) {
+    return this.http.post<UserForAuth>('/api/login', {
+      email,
+      password
+    }).pipe(tap((user) => {
+      this.user$$.next(user);
+    }))
+  }
 }
