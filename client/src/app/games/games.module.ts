@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AllGamesComponent } from './all-games/all-games.component';
 import { GamesRoutingModule } from './games-routing.module';
 import { AddGameComponent } from './add-game/add-game.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { AddGameComponent } from './add-game/add-game.component';
   ],
   imports: [
     CommonModule,
-    GamesRoutingModule
+    GamesRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [AllGamesComponent, AddGameComponent]
 })
