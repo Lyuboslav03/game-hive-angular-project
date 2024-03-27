@@ -4,11 +4,14 @@
         <div class="navbar-links">
             <a routerLink="/">Home</a>
             <a routerLink="/all-games">Games</a>
-            <a routerLink="/add-game">Add Game</a>
+            <a routerLink="/add-game" *ngIf="isLoggedIn">Add Game</a>
         </div>
-        <div class="navbar-auth-links">
+        <div class="navbar-auth-links" *ngIf="!isLoggedIn">
             <a routerLink="/login">Login</a>
             <a routerLink="/register">Register</a>
+        </div>
+        <div class="navbar-auth-links" *ngIf="isLoggedIn">
+            <a routerLink="#">My Profile</a>
             <a routerLink="/logout">Logout</a>
         </div>
     </div>
