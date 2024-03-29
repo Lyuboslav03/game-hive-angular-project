@@ -15,7 +15,7 @@
             </div>
             <div class="buttons" *ngIf="isOwner(game)">
                 <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
+                <button class="delete-btn" (click)="deleteGame()">Delete</button>
             </div>
         </div>
     </div>

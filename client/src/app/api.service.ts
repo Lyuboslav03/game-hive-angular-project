@@ -28,4 +28,8 @@ export class ApiService {
     getOneGame(gameId: string) {
         return this.http.get<Game>(`/api/games/${gameId}`);
     }
+
+    deleteGame(gameId: string) {
+        return this.http.delete(`/api/games/${gameId}`);
+    }
 }

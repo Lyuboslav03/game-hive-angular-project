@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Game } from 'src/app/types/game';
 import { UserService } from 'src/app/user/user.service';
@@ -13,7 +13,7 @@ export class CurrentGameComponent implements OnInit {
   gameId: string = '';
   game = {} as Game;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute, private userService: UserService) { }
+  constructor(private apiService: ApiService, private route: ActivatedRoute, private userService: UserService, private router: Router) { }
 
   get userId(): string {
     return this.userService.user?._id || '';
@@ -33,6 +33,14 @@ export class CurrentGameComponent implements OnInit {
     const isUserOwner = game.userId?._id === this.userId;
 
     return !!isUserOwner;
-  }
+  };
+
+  deleteGame(): void {
+    this.apiService.deleteGame(this.gameId).subscribe((game) => {
+      this.router.navigate(['/']);
+
+      return game;
+    });
+  };
 
 }
