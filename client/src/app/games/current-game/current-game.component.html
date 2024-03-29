@@ -13,7 +13,7 @@
                 <p><strong>Programmer:</strong> {{game.programmer}}</p>
                 <p><strong>Description:</strong> {{game.description}}</p>
             </div>
-            <div class="buttons">
+            <div class="buttons" *ngIf="isOwner(game)">
                 <button class="edit-btn">Edit</button>
                 <button class="delete-btn">Delete</button>
             </div>
