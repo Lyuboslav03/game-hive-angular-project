@@ -1,6 +1,7 @@
 import { UserForAuth } from "./user";
 
 export interface Game {
+    _id: string;
     title: string;
     genre: string;
     price: number;
