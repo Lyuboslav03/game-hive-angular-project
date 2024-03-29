@@ -24,4 +24,8 @@ export class ApiService {
     getGames() {
         return this.http.get<Game[]>('/api/games'); 
     }
+
+    getOneGame(gameId: string) {
+        return this.http.get<Game>(`/api/games/${gameId}`);
+    }
 }
