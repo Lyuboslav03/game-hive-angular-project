@@ -1,1 +1,22 @@
-<p>current-game works!</p>
+<div class="game-details-wrapper">
+    <div class="game-details-container">
+        <div class="game-image">
+            <img src="{{game.imageUrl}}" alt="Game Image">
+        </div>
+        <div class="game-details">
+            <h2 class="game-title">{{game.title}}</h2>
+            <p class="game-price">${{game.price}}</p>
+            <div class="additional-details">
+                <p><strong>Genre:</strong> {{game.genre}}</p>
+                <p><strong>Game Mode:</strong> {{game.gamemode}}</p>
+                <p><strong>Year of release:</strong> {{game.year}}</p>
+                <p><strong>Programmer:</strong> {{game.programmer}}</p>
+                <p><strong>Description:</strong> {{game.description}}</p>
+            </div>
+            <div class="buttons">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

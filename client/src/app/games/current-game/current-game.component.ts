@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { Game } from 'src/app/types/game';
 
 @Component({
   selector: 'app-current-game',
@@ -9,6 +10,7 @@ import { ApiService } from 'src/app/api.service';
 })
 export class CurrentGameComponent implements OnInit {
   gameId: string = '';
+  game = {} as Game;
   
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
@@ -18,7 +20,7 @@ export class CurrentGameComponent implements OnInit {
     });
 
     this.apiService.getOneGame(this.gameId).subscribe((game) => {
-      console.log(game);
+      this.game = game;
     });
   }
 }
