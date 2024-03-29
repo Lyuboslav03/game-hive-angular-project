@@ -20,4 +20,8 @@ export class ApiService {
             description
         });
     }
+
+    getGames() {
+        return this.http.get<Game[]>('/api/games'); 
+    }
 }
