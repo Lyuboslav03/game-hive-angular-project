@@ -25,6 +25,10 @@ export class ApiService {
         return this.http.get<Game[]>('/api/games'); 
     }
 
+    getLatestGames() {
+        return this.http.get<Game[]>('/api/games/latest-games');
+    }
+
     getOneGame(gameId: string) {
         return this.http.get<Game>(`/api/games/${gameId}`);
     }
