@@ -5,6 +5,7 @@ import { GamesRoutingModule } from './games-routing.module';
 import { AddGameComponent } from './add-game/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrentGameComponent } from './current-game/current-game.component';
+import { EditGameComponent } from './edit-game/edit-game.component';
 
 
 
@@ -12,13 +13,14 @@ import { CurrentGameComponent } from './current-game/current-game.component';
   declarations: [
     AllGamesComponent,
     AddGameComponent,
-    CurrentGameComponent
+    CurrentGameComponent,
+    EditGameComponent
   ],
   imports: [
     CommonModule,
     GamesRoutingModule,
     ReactiveFormsModule
   ],
-  exports: [AllGamesComponent, AddGameComponent, CurrentGameComponent]
+  exports: [AllGamesComponent, AddGameComponent, CurrentGameComponent, EditGameComponent]
 })
 export class GamesModule { }
