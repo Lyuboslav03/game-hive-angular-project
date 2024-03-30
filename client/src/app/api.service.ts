@@ -33,6 +33,10 @@ export class ApiService {
         return this.http.get<Game>(`/api/games/${gameId}`);
     }
 
+    editGame(gameId: string, gameData: object) {
+        return this.http.put(`/api/games/${gameId}`, gameData);
+    }
+
     deleteGame(gameId: string) {
         return this.http.delete(`/api/games/${gameId}`);
     }
