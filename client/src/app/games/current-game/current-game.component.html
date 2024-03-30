@@ -14,7 +14,7 @@
                 <p><strong>Description:</strong> {{game.description}}</p>
             </div>
             <div class="buttons" *ngIf="isOwner(game)">
-                <button class="edit-btn">Edit</button>
+                <a routerLink="/all-games/{{game._id}}/edit" class="edit-btn">Edit</a>
                 <button class="delete-btn" (click)="deleteGame()">Delete</button>
             </div>
         </div>
