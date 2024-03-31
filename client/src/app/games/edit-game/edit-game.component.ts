@@ -44,6 +44,10 @@ export class EditGameComponent implements OnInit {
   }
 
   editGame(): void {
+    Object.values(this.form.controls).forEach(control => {
+      control.markAsTouched();
+    });
+    
     if (this.form.invalid) {
       return;
     }

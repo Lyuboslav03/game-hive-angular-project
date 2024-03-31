@@ -5,34 +5,74 @@
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" formControlName="title">
         </div>
+
+        <ng-container *ngIf="form.get('title')?.touched">
+            <p class="error" *ngIf="form.get('title')?.errors?.['required']">Title is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <label for="genre">Genre:</label>
             <input type="text" id="genre" name="genre" formControlName="genre">
         </div>
+
+        <ng-container *ngIf="form.get('genre')?.touched">
+            <p class="error" *ngIf="form.get('genre')?.errors?.['required']">Genre is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <label for="price">Price:</label>
             <input type="number" id="price" name="price" formControlName="price">
         </div>
+
+        <ng-container *ngIf="form.get('price')?.touched">
+            <p class="error" *ngIf="form.get('price')?.errors?.['required']">Price is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <label for="gamemode">Game Mode:</label>
             <input type="text" id="gamemode" name="gamemode" formControlName="gamemode">
         </div>
+
+        <ng-container *ngIf="form.get('gamemode')?.touched">
+            <p class="error" *ngIf="form.get('gamemode')?.errors?.['required']">Gamemode is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <label for="imageUrl">Image URL:</label>
             <input type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl">
         </div>
+
+        <ng-container *ngIf="form.get('imageUrl')?.touched">
+            <p class="error" *ngIf="form.get('imageUrl')?.errors?.['required']">Image URL is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <label for="year">Year:</label>
             <input type="number" id="year" name="year" formControlName="year">
         </div>
+        
+        <ng-container *ngIf="form.get('year')?.touched">
+            <p class="error" *ngIf="form.get('year')?.errors?.['required']">Year is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <label for="programmer">Programmer:</label>
             <input type="text" id="programmer" name="programmer" formControlName="programmer">
         </div>
+
+        <ng-container *ngIf="form.get('programmer')?.touched">
+            <p class="error" *ngIf="form.get('programmer')?.errors?.['required']">Programmer is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="4" formControlName="description"></textarea>
         </div>
+
+        <ng-container *ngIf="form.get('description')?.touched">
+            <p class="error" *ngIf="form.get('description')?.errors?.['required']">Description is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <button type="submit">Edit Game</button>
         </div>
