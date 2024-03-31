@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { matchPasswordsValidator } from 'src/app/shared/utils/match-passwords-validator';
 
 @Component({
   selector: 'app-register',
@@ -15,12 +16,20 @@ export class RegisterComponent {
     passGroup: this.fb.group({
       password: ['', [Validators.required]],
       rePassword: ['', [Validators.required]]
+    }, {
+      validators: [matchPasswordsValidator('password', 'rePassword')],
     })
   });
+
+  serverError: string = '';
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   register(): void {
+    Object.values(this.form.controls).forEach(control => {
+      control.markAsTouched();
+    })
+    
     if (this.form.invalid) {
       return;
     }
@@ -29,6 +38,11 @@ export class RegisterComponent {
 
     this.userService.register(username!, email!, password!, rePassword!).subscribe(() => {
       this.router.navigate(['/']);
+    },
+    error => {
+      if (error) {
+        this.serverError = error.error.message;
+      }
     });
   }
 }

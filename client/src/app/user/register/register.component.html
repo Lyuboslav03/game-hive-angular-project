@@ -5,10 +5,21 @@
             <label for="username">Username</label>
             <input type="text" id="username" name="username" formControlName="username">
         </div>
+
+        <ng-container *ngIf="form.get('username')?.touched">
+            <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required!</p>
+        </ng-container>
+
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" formControlName="email">
         </div>
+
+        <ng-container *ngIf="form.get('email')?.touched">
+            <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+        </ng-container>
+
+        <div class="error" *ngIf="serverError">{{ serverError }}</div>
 
         <ng-container formGroupName="passGroup">
             <div class="form-group">
@@ -19,8 +30,13 @@
                 <label for="rePassword">Repeat Password</label>
                 <input type="password" id="rePassword" name="rePassword" formControlName="rePassword">
             </div>
+
+            <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
+                <p class="error" *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] || form.get('passGroup')?.get('rePassword')?.errors?.['required']">Passwords do not match!</p>
+            </ng-container>
+
         </ng-container>
-        
+
         <div class="form-group">
             <button type="submit">Register</button>
         </div>
