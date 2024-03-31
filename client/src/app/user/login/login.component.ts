@@ -14,9 +14,15 @@ export class LoginComponent {
     password: ['', [Validators.required]]
   });
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
+  serverError: string = '';
+
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   login(): void {
+    Object.values(this.form.controls).forEach(control => {
+      control.markAsTouched();
+    });
+
     if (this.form.invalid) {
       return;
     }
@@ -25,6 +31,11 @@ export class LoginComponent {
 
     this.userService.login(email!, password!).subscribe(() => {
       this.router.navigate(['/']);
-    });
+    },
+      error => {
+        if (error) {
+          this.serverError = error.error.message;
+        }
+      });
   }
 }
