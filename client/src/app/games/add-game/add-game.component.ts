@@ -23,6 +23,10 @@ export class AddGameComponent {
   constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) { }
 
   createGame(): void {
+    Object.values(this.form.controls).forEach(control => {
+      control.markAsTouched();
+    });
+
     if (this.form.invalid) {
       return;
     }
