@@ -53,4 +53,8 @@ export class UserService {
       this.user$$.next(user);
     }))
   }
+
+  getProfile() {
+    return this.http.get<UserForAuth>('/api/users/profile');
+  }
 }
