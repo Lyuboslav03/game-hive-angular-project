@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Game } from "./types/game";
+import { CommentForGame } from "./types/comment";
 
 @Injectable({
     providedIn: 'root'
@@ -22,7 +23,7 @@ export class ApiService {
     }
 
     getGames() {
-        return this.http.get<Game[]>('/api/games'); 
+        return this.http.get<Game[]>('/api/games');
     }
 
     getLatestGames() {
@@ -39,5 +40,13 @@ export class ApiService {
 
     deleteGame(gameId: string) {
         return this.http.delete(`/api/games/${gameId}`);
+    }
+
+    addComment(gameId: string, commentText: string) {
+        return this.http.post(`/api/comments/${gameId}`, { text: commentText });
+    }
+
+    getComments(gameId: string) {
+        return this.http.get<any[]>(`/api/comments/${gameId}`);
     }
 }

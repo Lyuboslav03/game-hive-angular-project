@@ -11,6 +11,7 @@ export interface Game {
     programmer: string;
     description: string;
     userId: UserForAuth;
+    comments: Comment[];
     createdAt: string;
     updatedAt: string;
     _v: number;
