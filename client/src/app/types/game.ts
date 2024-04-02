@@ -1,3 +1,4 @@
+import { CommentForGame } from "./comment";
 import { UserForAuth } from "./user";
 
 export interface Game {
@@ -11,7 +12,7 @@ export interface Game {
     programmer: string;
     description: string;
     userId: UserForAuth;
-    comments: Comment[];
+    comments: CommentForGame[];
     createdAt: string;
     updatedAt: string;
     _v: number;
