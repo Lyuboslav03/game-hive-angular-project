@@ -1,0 +1,18 @@
+<div class="game-container" *ngIf="user.games.length > 0">
+    <div class="game-card" *ngFor="let game of user.games">
+        <div class="game-image">
+            <img src="{{game.imageUrl}}" alt="Game Image">
+        </div>
+        <div class="game-details">
+            <h3 class="game-title">{{game.title}}</h3>
+            <p class="game-price">${{game.price}}</p>
+            <a routerLink="/all-games/{{game._id}}" class="btn">View Details</a>
+        </div>
+    </div>
+</div>
+
+<div class="no-games-found-container" *ngIf="!user.games.length">
+    <div class="no-games-found">
+        No games found...
+    </div>
+</div>

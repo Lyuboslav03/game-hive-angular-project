@@ -1,0 +1,70 @@
+.game-container {
+    width: 1500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 2em;
+}
+
+.game-card {
+    width: calc(33.33% - 30px);
+    margin: 0 15px 30px;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.game-image {
+    display: flex;
+    justify-content: center;
+}
+
+.game-image img {
+    width: 300px;
+    height: 400px;
+    margin-top: 1.5em;
+}
+
+.game-details {
+    padding: 20px;
+    text-align: center;
+}
+
+.game-title {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+
+.game-price {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #666;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.no-games-found-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
