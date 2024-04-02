@@ -1,3 +1,19 @@
+<div class="user-container">
+    <div class="img">
+        <img src="../../../assets/profile-icon.jpg" alt="User image">
+        <h3>{{user.username}}'s profile</h3>
+    </div>
+    <div class="user-info">
+        <p>Username: {{user.username}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Games added: {{user.games.length}}</p>
+    </div>
+</div>
+
+<div class="created-games-title">
+    <h3>Created games</h3>
+</div>
+
 <div class="game-container" *ngIf="user.games.length > 0">
     <div class="game-card" *ngFor="let game of user.games">
         <div class="game-image">
