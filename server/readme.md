@@ -158,7 +158,7 @@ Content:
 }
 ```
 
-# Endpoints: Themes
+# Endpoints: Games
 
 * ```/games```
 * ```/games/:gameId```
@@ -208,7 +208,7 @@ Content:
 ```
 
 ## Post Game
-Creates new Theme with the first post of the author and returns the theme as json.
+Creates new Game with the first post of the author and returns the theme as json.
 
 ### URL --> ```/games```
 
