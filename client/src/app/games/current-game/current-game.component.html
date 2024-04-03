@@ -28,7 +28,8 @@
 
 <div class="comments" id="comments-section">
     <div class="comment" *ngFor="let comment of comments">
-        <strong>{{comment.userId.username}}</strong>: {{comment.text}}
+        <strong>{{ (game.userId._id === comment.userId._id) ? 'Owner' : comment.userId.username }}</strong>: {{
+        comment.text }}
     </div>
 </div>
 
