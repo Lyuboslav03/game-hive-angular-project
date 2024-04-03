@@ -34,14 +34,14 @@ This API isn't open API. Authentication is required to store and get data. You c
 
 # Endpoints: Users
 
-* ```/users/register``` -- signing up;
-* ```/users/login``` -- signing in;
-* ```/users/logout``` -- logging out;
+* ```/register``` -- signing up;
+* ```/login``` -- signing in;
+* ```/logout``` -- logging out;
 
 ## Register User
 Signs up user and returns the registered data as json.
 
-### URL --> ```/users/register```
+### URL --> ```/register```
 
 ### Method --> ```POST```
 
@@ -49,9 +49,8 @@ Signs up user and returns the registered data as json.
 
 ```
 {
-    "name":"John Doe",
-    "email":"john@email.com",
     "username":"Johny",
+    "email":"john@email.com",
     "password":"12345",
     "rePassword":"12345"
 }
@@ -59,15 +58,11 @@ Signs up user and returns the registered data as json.
 
 Required:
 
-```email``` : [string] -- The email of the person is required and must be unique;
-
 ```username``` : [string] -- The username of the person is required and must be unique, also there is a minimum length of 5 chars, allowed are latin letters and numbers;
 
+```email``` : [string] -- The email of the person is required and must be unique;
+
 ```password``` : [string] -- The password of the person is required and must be unique, also there is a minimum length of 5 chars, allowed are latin letters and numbers;
-
-Not Required
-
-```tel``` : [string] -- Optional;
 
 ### Success Response:
 
@@ -76,10 +71,8 @@ Code: 200
 Content: 
 ``` 
 {
-    "themes": [],
-    "posts": [],
+    "games": [],
     "_id": "5f1875690916010017964978",
-    "name": "John Doe",
     "email": "john@email.com",
     "username": "Johny",
     "created_at": "2020-10-14T08:04:12.196Z",
@@ -101,7 +94,7 @@ Content:
 ## Login User
 Signs in user and returns the registered data as json.
 
-### URL --> ```/users/login```
+### URL --> ```/login```
 
 ### Method --> ```POST```
 
@@ -109,14 +102,14 @@ Signs in user and returns the registered data as json.
 
 ```
 {
-    "username":"Johny",
+    "email":"john@egmail.com",
     "password":"12345"
 }
 ```
 
 Required:
 
-```username``` : [string] -- The username of the person 
+```email``` : [string] -- The email of the person 
 
 ```password``` : [string] -- The password of the person 
 
@@ -127,10 +120,8 @@ Code: 200
 Content: 
 ``` 
 {
-    "themes": ["5f85c51996b5601b2406e5b7"],
-    "posts": ["5f86bdcde012743fe4f5b324"],
+    "games": ["5f85c51996b5601b2406e5b7"],
     "_id": "5f1875690916010017964978",
-    "name": "John Doe",
     "email": "john@email.com",
     "username": "Johny",
     "created_at": "2020-10-14T08:04:12.196Z",
@@ -152,7 +143,7 @@ Content:
 ## Logout User
 Logout user.
 
-### URL --> ```/users/logout```
+### URL --> ```/logout```
 
 ### Method --> ```POST```
 
@@ -169,13 +160,13 @@ Content:
 
 # Endpoints: Themes
 
-* ```/themes```
-* ```/themes/:themeId```
+* ```/games```
+* ```/games/:gameId```
 
 ## Get Themes
 Returns all themes as json.
 
-### URL --> ```/themes```
+### URL --> ```/games```
 
 ### Method --> ```GET```
 
@@ -187,10 +178,16 @@ Content:
 ``` 
 [
     {
-        "subscribers": ["5f8580d25d1da62568dd38fd"],
-        "posts": ["5f858dd2d895ad23602db9d5"],
+        "comments": ["5f8580d25d1da62568dd38fd"],
         "_id": "5f858dd2d895ad23602db9d4",
-        "themeName": "Some Theme",
+        "title": "Some Title",
+        "genre": "Some Genre",
+        "price": "Some Price",
+        "gamemode": "Some Gamemode",
+        "imageUrl": "Some imageUrl",
+        "year": "Some Year",
+        "programmer": "Some Programmer",
+        "description": "Some Description",
         "userId": "5f8580d25d1da62568dd38fd",
         "created_at": "2020-10-13T11:21:54.863Z",
         "updatedAt": "2020-10-13T11:21:54.898Z",
@@ -213,7 +210,7 @@ Content:
 ## Post Theme
 Creates new Theme with the first post of the author and returns the theme as json.
 
-### URL --> ```/themes```
+### URL --> ```/games```
 
 ### Method --> ```POST```
 
@@ -221,14 +218,20 @@ Creates new Theme with the first post of the author and returns the theme as jso
 
 ```
 {
-    "themeName": "Some Theme Title",
-    "postText": "Some Post text"
+    "title": "Some Title",
+    "genre": "Some Genre",
+    "price": "Some Price",
+    "gamemode": "Some Gamemode",
+    "imageUrl": "Some imageUrl",
+    "year": "Some Year",
+    "programmer": "Some Programmer",
+    "description": "Some Description",
 }
 ```
 
 Required:
 
-```themeName``` : [string] -- The Title of your new Theme, which you want to create
+```title``` : [string] -- The Title of your new Game, which you want to create
 ```postText``` : [string] -- The text of your post. This post will be append as first comment on your Theme.
 
 ### Success Response:
@@ -250,110 +253,6 @@ Content:
 ```
 
 ### Error Response:
-
-Code: 500 Internal Server Error
-
-Content: 
-```
-{
-    message: "Something went wrong!"
-}
-```
-
-## Create Post
-Creates new Post of the author and returns the theme as json.
-
-### URL --> ```/themes/:themeId```
-
-### Method --> ```POST```
-
-### Body -->
-
-```
-{
-    "postText": "Some Post text"
-}
-```
-
-### Success Response:
-
-Code: 200
-
-Content: 
-``` 
-{
-"subscribers": ["5f8580d25d1da62568dd38fd"],
-"posts": [
-    "5f85ad8f1141b13a04a9139c",
-    "5f85b2501141b13a04a9139d"
-],
-"_id": "5f858dd2d895ad23602db9d4",
-"themeName": "Some Theme",
-"userId": "5f8580d25d1da62568dd38fd",
-"created_at": "2020-10-13T11:21:54.863Z",
-"updatedAt": "2020-10-13T13:57:36.466Z",
-"__v": 0
-}
-```
-
-### Error Response:
-
-Code: 500 Internal Server Error
-
-Content: 
-```
-{
-    message: "Something went wrong!"
-}
-```
-
-# Endpoints: Posts
-
-* ```/themes/:themeId/posts/:postId```
-
-## Edit Post
-Edit Post if the user is the author of the post and returns the changed post.
-
-### URL --> ```/themes/:themeId/posts/:postId```
-
-### Method --> ```PUT```
-
-### Body -->
-
-```
-{
-    "postText": "Changed text"
-}
-```
-
-### Success Response:
-
-Code: 200
-
-Content: 
-``` 
-{
-    "likes": [],
-    "_id": "5f86c3fcbfa44331a0ff0095",
-    "text": "Changed text",
-    "userId": "5f86c1f0a112c130e89964af",
-    "themeId": "5f85c51996b5601b2406e5b7",
-    "created_at": "2020-10-14T09:25:16.203Z",
-    "updatedAt": "2020-10-14T09:31:45.021Z",
-    "__v": 0
-}
-```
-
-### Error Response:
-
-Code: 401 Unauthorized
-
-Content: 
-```
-{
-    message: "Not allowed!"
-}
-```
 
 Code: 500 Internal Server Error
 
@@ -408,37 +307,6 @@ Content:
     message: "Something went wrong!"
 }
 ```
-## Like Post
-Adds like to the post.
-
-### URL --> ```/likes/:postId```
-
-### Method --> ```PUT```
-
-### Success Response:
-
-Code: 200
-
-Content: 
-``` 
-{
-    message: "Liked successful!"
-}
-```
-
-### Error Response:
-
-Code: 500 Internal Server Error
-
-Content: 
-```
-{
-    message: "Something went wrong!"
-}
-```
-
-
-
 
 <!-- users
 .post /register - register new user
@@ -446,20 +314,12 @@ Content:
 .post /logout - logout user
 
 .get /profile - get user info
-.post /profile - post user info
-.put /profile - edit user info
 
-themes
-.get /themes - lists all themes
-.post /themes - create new theme only for registered users
-
-posts:
-.get themes/id - get all posts for theme
-.post themes/id - create post in theme by id only for registered users
-.put themes/id/posts/id - edit post only possible for author
-.delete themes/id/posts/id - delete post only possible for author -->
+games
+.get /games - lists all themes
+.post /games - create new game only for registered users
 
 
-<!-- http://localhost:3000/api/users/register --  {"name":"SomeName","email":"some@email.com","username":"someUsername","password":"12345","rePassword":"12345"} -->
-<!--http://localhost:3000/api/themes -- {"themeName":"Some Theme", "userId":"5f85bf709a517d36f4abe656", "post": "Some Post" } -->
-<!-- http://localhost:3000/api/themes/5f858dd2d895ad23602db9d4  -- {"userId":"5f8580d25d1da62568dd38fd", "postText": "Some Post textsdfasdf" } -->
+<!-- http://localhost:3000/api/register --  {"name":"SomeName","email":"some@email.com","username":"someUsername","password":"12345","rePassword":"12345"} -->
+<!--http://localhost:3000/api/games -- {"themeName":"Some Theme", "userId":"5f85bf709a517d36f4abe656", "post": "Some Post" } -->
+<!-- http://localhost:3000/api/games/5f858dd2d895ad23602db9d4  -- {"userId":"5f8580d25d1da62568dd38fd", "postText": "Some Post textsdfasdf" } -->
