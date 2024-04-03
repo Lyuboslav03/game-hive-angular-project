@@ -8,6 +8,7 @@
 
         <ng-container *ngIf="form.get('username')?.touched">
             <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required!</p>
+            <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">Username should be at least 5 characters!</p>
         </ng-container>
 
         <div class="form-group">
@@ -33,6 +34,7 @@
 
             <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
                 <p class="error" *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] || form.get('passGroup')?.get('rePassword')?.errors?.['required']">Passwords do not match!</p>
+                <p class="error" *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] || form.get('passGroup')?.get('password')?.errors?.['minlength']">Password should be at least 5 characters!</p>
             </ng-container>
 
         </ng-container>

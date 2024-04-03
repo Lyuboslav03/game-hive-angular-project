@@ -11,10 +11,10 @@ import { matchPasswordsValidator } from 'src/app/shared/utils/match-passwords-va
 })
 export class RegisterComponent {
   form = this.fb.group({
-    username: ['', [Validators.required]],
+    username: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required]],
     passGroup: this.fb.group({
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       rePassword: ['', [Validators.required]]
     }, {
       validators: [matchPasswordsValidator('password', 'rePassword')],
@@ -27,7 +27,7 @@ export class RegisterComponent {
 
   register(): void {
     Object.values(this.form.controls).forEach(control => {
-      control.markAsTouched();
+      control.markAllAsTouched();
     })
     
     if (this.form.invalid) {
