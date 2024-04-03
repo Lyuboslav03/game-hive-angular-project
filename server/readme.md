@@ -164,7 +164,7 @@ Content:
 * ```/games/:gameId```
 
 ## Get Games
-Returns all themes as json.
+Returns all games as json.
 
 ### URL --> ```/games```
 
@@ -208,7 +208,7 @@ Content:
 ```
 
 ## Post Game
-Creates new Game with the first post of the author and returns the theme as json.
+Creates new game with the first post of the author and returns the game as json.
 
 ### URL --> ```/games```
 
@@ -231,8 +231,14 @@ Creates new Game with the first post of the author and returns the theme as json
 
 Required:
 
-```title``` : [string] -- The Title of your new Game, which you want to create
-```postText``` : [string] -- The text of your post. This post will be append as first comment on your Theme.
+```title``` : [string] -- The title of your new game
+```genre``` : [string] -- The genre of your new game
+```price``` : [number] -- The price of your new game
+```gamemode``` : [string] -- The gamemode of your new game
+```imageUrl``` : [string] -- The imageUrl of your new game
+```year``` : [number] -- The year of your new game
+```programmer``` : [string] -- The programmer of your new game
+```description``` : [string] -- The description of your new game
 
 ### Success Response:
 
@@ -241,13 +247,19 @@ Code: 200
 Content: 
 ``` 
 {
-    "subscribers": ["5f86c1f0a112c130e89964af"],
-    "posts": ["5f86c38abfa44331a0ff0094"],
-    "_id": "5f86c38abfa44331a0ff0093",
-    "themeName": "Some Theme Title",
-    "userId": "5f86c1f0a112c130e89964af",
-    "created_at": "2020-10-14T09:23:22.102Z",
-    "updatedAt": "2020-10-14T09:23:22.114Z",
+   "comments": [],
+    "_id": "660db4ade717163bfcd79e16",
+    "title": "Some title",
+    "genre": "Some genre",
+    "price": "Some price",
+    "gamemode": "Some gamemode",
+    "imageUrl": "Some imageUrl",
+    "year": "Some year",
+    "description": "Some description",
+    "programmer": "Some programmer",
+    "userId": "66073afacead863f4c6faf55",
+    "createdAt": "2024-04-03T19:57:33.855Z",
+    "updatedAt": "2024-04-03T19:57:33.855Z",
     "__v": 0
 }
 ```
@@ -263,27 +275,33 @@ Content:
 }
 ```
 
-## Delete Game
-Deletes Game if the user is the author of the post and returns the deleted post.
+## Edit Game
+Edits game if the user is the author of the game and returns the updated game.
 
 ### URL --> ```/games/:gameId```
 
-### Method --> ```DELETE```
+### Method --> ```PUT```
 
 ### Success Response:
 
 Code: 200
 
-Content: 
-``` 
+Content:
+```
 {
-    "likes": [],
-    "_id": "5f86c3fcbfa44331a0ff0095",
-    "text": "Changed text",
-    "userId": "5f86c1f0a112c130e89964af",
-    "themeId": "5f85c51996b5601b2406e5b7",
-    "created_at": "2020-10-14T09:25:16.203Z",
-    "updatedAt": "2020-10-14T09:33:56.595Z",
+    "comments": [],
+    "_id": "660db578e717163bfcd79e28",
+    "title": "Some title",
+    "genre": "Some genre",
+    "price": "Some price",
+    "gamemode": "Some gamemode",
+    "imageUrl": "Some imageUrl",
+    "year": "Some year",
+    "description": "Some description",
+    "programmer": "Some programmer",
+    "userId": "66073afacead863f4c6faf55",
+    "createdAt": "2024-04-03T20:00:56.958Z",
+    "updatedAt": "2024-04-03T20:00:56.958Z",
     "__v": 0
 }
 ```
@@ -308,18 +326,53 @@ Content:
 }
 ```
 
-<!-- users
-.post /register - register new user
-.post /login - login user
-.post /logout - logout user
+## Delete Game
+Deletes game if the user is the author of the game and returns the deleted post.
 
-.get /profile - get user info
+### URL --> ```/games/:gameId```
 
-games
-.get /games - lists all themes
-.post /games - create new game only for registered users
+### Method --> ```DELETE```
 
+### Success Response:
 
-<!-- http://localhost:3000/api/register --  {"name":"SomeName","email":"some@email.com","username":"someUsername","password":"12345","rePassword":"12345"} -->
-<!--http://localhost:3000/api/games -- {"themeName":"Some Theme", "userId":"5f85bf709a517d36f4abe656", "post": "Some Post" } -->
-<!-- http://localhost:3000/api/games/5f858dd2d895ad23602db9d4  -- {"userId":"5f8580d25d1da62568dd38fd", "postText": "Some Post textsdfasdf" } -->
+Code: 200
+
+Content: 
+``` 
+{
+    "comments": [],
+    "_id": "660db4ade717163bfcd79e16",
+    "title": "Some title",
+    "genre": "Some gengre",
+    "price": "Some price",
+    "gamemode": "Some gamemode",
+    "imageUrl": "Some imageUrl",
+    "year": "Some year",
+    "description": "Some description",
+    "programmer": "Some programmer",
+    "userId": "66073afacead863f4c6faf55",
+    "createdAt": "2024-04-03T19:57:33.855Z",
+    "updatedAt": "2024-04-03T19:57:33.855Z",
+    "__v": 0
+}
+```
+
+### Error Response:
+
+Code: 401 Unauthorized
+
+Content: 
+```
+{
+    message: "Not allowed!"
+}
+```
+
+Code: 500 Internal Server Error
+
+Content: 
+```
+{
+    message: "Something went wrong!"
+}
+```
