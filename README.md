@@ -22,4 +22,4 @@ Game management web application built with Angular. Users can register, login, c
 
 ## License
 
-Specify the license under which your project is distributed. For example, you can use a license like MIT, GPL, Apache, etc.
+This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/license/mit) file for details.
