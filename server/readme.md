@@ -232,12 +232,19 @@ Creates new game with the first post of the author and returns the game as json.
 Required:
 
 ```title``` : [string] -- The title of your new game
+
 ```genre``` : [string] -- The genre of your new game
+
 ```price``` : [number] -- The price of your new game
+
 ```gamemode``` : [string] -- The gamemode of your new game
+
 ```imageUrl``` : [string] -- The imageUrl of your new game
+
 ```year``` : [number] -- The year of your new game
+
 ```programmer``` : [string] -- The programmer of your new game
+
 ```description``` : [string] -- The description of your new game
 
 ### Success Response:
