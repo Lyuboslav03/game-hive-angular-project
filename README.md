@@ -17,8 +17,23 @@ Game management web application built with Angular. Users can register, login, c
 ## Usage
 1. Clone the repository.
 2. Open the project directory.
-3. Install needed dependencies with `npm install` or `npm i`.
-4. Run the application with `npm start` or `ng serve`.
+### Server setup
+Open a new terminal in the root folder of the project.  
+
+Navigate to the `server` folder with `cd server`.  
+
+Install needed dependencies with `npm install` or `npm i`.
+
+Run `npm start` command to start the server.
+
+### Client setup
+Open a new terminal in the root folder of the project.
+
+Navigate to the `client` folder with `cd client`.
+
+Install needed dependencies with `npm install` or `npm i`. 
+
+Run `npm start` or `ng serve` to start the client in development mode.
 
 ## License
 
