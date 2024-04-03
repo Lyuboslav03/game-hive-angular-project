@@ -163,7 +163,7 @@ Content:
 * ```/games```
 * ```/games/:gameId```
 
-## Get Themes
+## Get Games
 Returns all themes as json.
 
 ### URL --> ```/games```
@@ -207,7 +207,7 @@ Content:
 }
 ```
 
-## Post Theme
+## Post Game
 Creates new Theme with the first post of the author and returns the theme as json.
 
 ### URL --> ```/games```
@@ -263,10 +263,10 @@ Content:
 }
 ```
 
-## Delete Post
-Deletes Post if the user is the author of the post and returns the deleted post.
+## Delete Game
+Deletes Game if the user is the author of the post and returns the deleted post.
 
-### URL --> ```/themes/:themeId/posts/:postId```
+### URL --> ```/games/:gameId```
 
 ### Method --> ```DELETE```
 
