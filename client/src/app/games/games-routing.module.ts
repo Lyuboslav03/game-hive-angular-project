@@ -4,6 +4,7 @@ import { AllGamesComponent } from "./all-games/all-games.component";
 import { AddGameComponent } from "./add-game/add-game.component";
 import { CurrentGameComponent } from "./current-game/current-game.component";
 import { EditGameComponent } from "./edit-game/edit-game.component";
+import { AuthGuard } from "../guards/auth.activate";
 
 const routes: Routes = [
     {
@@ -14,7 +15,7 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'add-game', component: AddGameComponent
+        path: 'add-game', component: AddGameComponent, canActivate: [AuthGuard]
     }
 ]
 
